@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+using namespace::std
 
 class StudentRecord{
 private:
@@ -28,11 +29,11 @@ private:
         char FinalGradeChar = computeLetterGrade();
     };
 public:
-    double computeNumericScore(){//! not done
-        return (quiz1 + quiz2 + quiz3) * 0.25 + midterm * 0.35 + finalExam * 0.40;
+    double computeNumericScore(){
+        return (((quiz1 + quiz2 + quiz3) * 0.25) + (midterm * 0.35) + (finalExam * 0.40))/100.0;
     }
     char computeLetterGrade(){
-        //tried to use a switch case but i diont think itll work
+        //tried to use a switch case but i dont think itll work
         if (FinalgradeNum > 90){
             return 'A';
         }if else(FinalgradeNum > 80){
@@ -48,7 +49,7 @@ public:
     //setters
     void setQuiz1(int quizScore1){quiz1 = quizScore1}
     void setQuiz2(int quizScore2){quiz2 = quizScore2}
-    void setQuiz2(int quizScore3){quiz3 = quizScore3}
+    void setQuiz3(int quizScore3){quiz3 = quizScore3}
     void setMidterm(int midtermScore){midterm = midtermScore}
     void setFinalExam(int FinalExamScore){finalExam = FinalExamScore}
     //getters
@@ -74,7 +75,8 @@ public:
 };
 
 int main() {
-
+    grades1 = StudentRecord(10 , 9, 7 , 90 , 80)
+    cout << grades1.toString()
     return 0;
 }
 //does this work?
