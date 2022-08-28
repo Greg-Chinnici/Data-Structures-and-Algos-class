@@ -12,25 +12,25 @@ private:
     char FinalGradeChar;
 
     StudentRecord(){
-        int quiz1 = 10, quiz2 = 10, quiz3 = 10;
-        int midterm = 100;
-        int finalExam = 100;
+        quiz1 = 10, quiz2 = 10, quiz3 = 10;
+        midterm = 100;
+        finalExam = 100;
 
-        double FinalGradeNum = 100;
-        char FinalGradeChar = 'A';
+        FinalGradeNum = 100;
+        FinalGradeChar = 'A';
     };
     StudentRecord(int quizScore1, int quizScore2, int quizScore3, int midtermScore, int finalExamScore){
-        int quiz1 = quizScore1, quiz2 = quizScore2, quiz3 = quizScore3;
-        int midterm = midtermScore;
-        int finalExam = finalExamScore;
+        quiz1 = quizScore1, quiz2 = quizScore2, quiz3 = quizScore3;
+        midterm = midtermScore;
+        finalExam = finalExamScore;
 
     //? idk what to do to calc these, do i just make the method go here?
-        double FinalGradeNum = computeNumericScore();
-        char FinalGradeChar = computeLetterGrade();
+        FinalGradeNum = computeNumericScore();
+        FinalGradeChar = computeLetterGrade();
     };
 public:
     double computeNumericScore(){
-        return (((quiz1 + quiz2 + quiz3) * 0.25) + (midterm * 0.35) + (finalExam * 0.40))/100.0;
+        return (((quiz1 + quiz2 + quiz3) * 0.25) + (midterm * 0.35) + (finalExam * 0.40))/1.0;
     }
     char computeLetterGrade(){
         //tried to use a switch case but i dont think itll work
