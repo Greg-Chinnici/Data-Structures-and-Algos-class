@@ -2,6 +2,8 @@
 #include <string>
 using namespace::std
 
+//promt: https://canvas.chapman.edu/courses/44377/pages/c++-sample-problem?module_item_id=1437872
+
 class StudentRecord{
 private:
     int quiz1, quiz2, quiz3;
