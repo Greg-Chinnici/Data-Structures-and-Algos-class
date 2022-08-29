@@ -47,17 +47,17 @@ public:
         }
     }
     //setters
-    void setQuiz1(int quizScore1){quiz1 = quizScore1}
-    void setQuiz2(int quizScore2){quiz2 = quizScore2}
-    void setQuiz3(int quizScore3){quiz3 = quizScore3}
-    void setMidterm(int midtermScore){midterm = midtermScore}
-    void setFinalExam(int FinalExamScore){finalExam = FinalExamScore}
+    void setQuiz1(int quizScore1){this.quiz1 = quizScore1}
+    void setQuiz2(int quizScore2){this.quiz2 = quizScore2}
+    void setQuiz3(int quizScore3){this.quiz3 = quizScore3}
+    void setMidterm(int midtermScore){this.midterm = midtermScore}
+    void setFinalExam(int FinalExamScore){this.finalExam = FinalExamScore}
     //getters
-    int getQuiz1(){return quiz1}
-    int getQuiz2(){return quiz2}
-    int getQuiz3(){return quiz3}
-    int getMidterm(){return midterm}
-    int getFinalExam(){return finalExam}
+    int getQuiz1(){return this.quiz1}
+    int getQuiz2(){return this.quiz2}
+    int getQuiz3(){return this.quiz3}
+    int getMidterm(){return this.midterm}
+    int getFinalExam(){return this.finalExam}
 
     //need toString and Equals
     string toString(){
