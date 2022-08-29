@@ -13,7 +13,7 @@ private:
     double FinalGradeNum;
     char FinalGradeChar;
 
-    StudentRecord(){
+    StudentRecord(){//initial constructor
         quiz1 = 10, quiz2 = 10, quiz3 = 10;
         midterm = 100;
         finalExam = 100;
@@ -21,7 +21,7 @@ private:
         FinalGradeNum = 100;
         FinalGradeChar = 'A';
     };
-    StudentRecord(int quizScore1, int quizScore2, int quizScore3, int midtermScore, int finalExamScore){
+    StudentRecord(int quizScore1, int quizScore2, int quizScore3, int midtermScore, int finalExamScore){//overloaded constructor
         quiz1 = quizScore1, quiz2 = quizScore2, quiz3 = quizScore3;
         midterm = midtermScore;
         finalExam = finalExamScore;
@@ -75,8 +75,8 @@ public:
         return s
     }
     bool isEqual(StudentRecord s1 , Studentrecord s2){
-
-    }
+       return ((s1.quiz1 == s2.quiz1) && (s1.quiz2 == s2.quiz2) && (s1.quiz3 == s2.quiz3) && (s1.midterm == s2.midterm) && (s1.finalExam == s2.finalExam))
+       }
 };
 
 int main() {
