@@ -32,7 +32,7 @@ private:
     };
 public:
     double computeNumericScore(){
-        return ((((quiz1 + quiz2 + quiz3)/30.0) * 0.25) + ((midterm/100.0) * 0.35) + ((finalExam/100.0) * 0.40));
+        return ((((quiz1 + quiz2 + quiz3)/30.0) * 0.25) + ((midterm/100.0) * 0.35) + ((finalExam/100.0) * 0.40)) * 100;
     }
     char computeLetterGrade(){
         //tried to use a switch case but i dont think itll work
