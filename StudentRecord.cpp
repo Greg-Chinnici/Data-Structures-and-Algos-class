@@ -74,6 +74,9 @@ public:
 
         return s
     }
+    bool isEqual(StudentRecord s1 , Studentrecord s2){
+        
+    }
 };
 
 int main() {
