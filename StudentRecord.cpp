@@ -32,7 +32,7 @@ private:
     };
 public:
     double computeNumericScore(){
-        return (((quiz1 + quiz2 + quiz3) * 0.25) + (midterm * 0.35) + (finalExam * 0.40))/1.0;
+        return ((((quiz1 + quiz2 + quiz3)/30.0) * 0.25) + ((midterm/100.0) * 0.35) + ((finalExam/100.0) * 0.40));
     }
     char computeLetterGrade(){
         //tried to use a switch case but i dont think itll work
@@ -75,7 +75,7 @@ public:
         return s
     }
     bool isEqual(StudentRecord s1 , Studentrecord s2){
-        
+
     }
 };
 
