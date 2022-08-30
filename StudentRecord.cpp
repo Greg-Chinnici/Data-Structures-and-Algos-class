@@ -1,6 +1,7 @@
+#include "StudentRecord.h"
 #include <iostream>
 #include <string>
-using namespace::std
+using namespace std
 
 //promt: https://canvas.chapman.edu/courses/44377/pages/c++-sample-problem?module_item_id=1437872
 
@@ -10,6 +11,7 @@ private:
     int midterm;
     int finalExam;
 
+    //needs to be processed
     double FinalGradeNum;
     char FinalGradeChar;
 
@@ -49,17 +51,17 @@ public:
         }
     }
     //setters
-    void setQuiz1(int quizScore1){this->quiz1 = quizScore1}
-    void setQuiz2(int quizScore2){this->quiz2 = quizScore2}
-    void setQuiz3(int quizScore3){this->quiz3 = quizScore3}
-    void setMidterm(int midtermScore){this->midterm = midtermScore}
-    void setFinalExam(int FinalExamScore){this->finalExam = FinalExamScore}
+    void setQuiz1(int quizScore1){this->quiz1 = quizScore1};
+    void setQuiz2(int quizScore2){this->quiz2 = quizScore2};
+    void setQuiz3(int quizScore3){this->quiz3 = quizScore3};
+    void setMidterm(int midtermScore){this->midterm = midtermScore};
+    void setFinalExam(int FinalExamScore){this->finalExam = FinalExamScore};
     //getters
-    int getQuiz1(){return this->quiz1}
-    int getQuiz2(){return this->quiz2}
-    int getQuiz3(){return this->quiz3}
-    int getMidterm(){return this->midterm}
-    int getFinalExam(){return this->finalExam}
+    int getQuiz1(){return this->quiz1};
+    int getQuiz2(){return this->quiz2};
+    int getQuiz3(){return this->quiz3};
+    int getMidterm(){return this->midterm};
+    int getFinalExam(){return this->finalExam};
 
     //need toString and Equals
     string toString(){
@@ -80,7 +82,7 @@ public:
 };
 
 int main() {
-    grades1 = StudentRecord(10 , 9, 7 , 90 , 80)
+    StudentRecord grades1 = StudentRecord(10 , 9 , 7 , 90 , 80)
     cout << grades1.toString()
     return 0;
 }
