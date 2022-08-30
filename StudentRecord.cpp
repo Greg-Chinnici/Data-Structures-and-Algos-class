@@ -32,34 +32,34 @@ private:
     };
 public:
     double computeNumericScore(){
-        return ((((quiz1 + quiz2 + quiz3)/30.0) * 0.25) + ((midterm/100.0) * 0.35) + ((finalExam/100.0) * 0.40)) * 100;
+        return ((((this->quiz1 + this->quiz2 + this->quiz3)/30.0) * 0.25) + ((this->midterm/100.0) * 0.35) + ((this->finalExam/100.0) * 0.40)) * 100;
     }
     char computeLetterGrade(){
         //tried to use a switch case but i dont think itll work
-        if (FinalgradeNum > 90){
+        if (this->FinalgradeNum > 90){
             return 'A';
-        }if else(FinalgradeNum > 80){
+        }if else(this->FinalgradeNum > 80){
             return 'B';
-        }if else (FinalGradeNum > 70){
+        }if else (this->FinalGradeNum > 70){
             return 'C';
-        }if else (FinalGradeNum > 60){
+        }if else (this->FinalGradeNum > 60){
             return 'D';
         }else{
             return 'F';
         }
     }
     //setters
-    void setQuiz1(int quizScore1){this.quiz1 = quizScore1}
-    void setQuiz2(int quizScore2){this.quiz2 = quizScore2}
-    void setQuiz3(int quizScore3){this.quiz3 = quizScore3}
-    void setMidterm(int midtermScore){this.midterm = midtermScore}
-    void setFinalExam(int FinalExamScore){this.finalExam = FinalExamScore}
+    void setQuiz1(int quizScore1){this->quiz1 = quizScore1}
+    void setQuiz2(int quizScore2){this->quiz2 = quizScore2}
+    void setQuiz3(int quizScore3){this->quiz3 = quizScore3}
+    void setMidterm(int midtermScore){this->midterm = midtermScore}
+    void setFinalExam(int FinalExamScore){this->finalExam = FinalExamScore}
     //getters
-    int getQuiz1(){return this.quiz1}
-    int getQuiz2(){return this.quiz2}
-    int getQuiz3(){return this.quiz3}
-    int getMidterm(){return this.midterm}
-    int getFinalExam(){return this.finalExam}
+    int getQuiz1(){return this->quiz1}
+    int getQuiz2(){return this->quiz2}
+    int getQuiz3(){return this->quiz3}
+    int getMidterm(){return this->midterm}
+    int getFinalExam(){return this->finalExam}
 
     //need toString and Equals
     string toString(){
