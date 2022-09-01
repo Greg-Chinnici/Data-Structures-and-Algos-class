@@ -12,8 +12,8 @@ private:
     int finalExam;
 
     //needs to be processed
-    double FinalGradeNum;
-    char FinalGradeChar;
+    double finalGradeNum;
+    char finalGradeChar;
 
     StudentRecord(){//initial constructor
         quiz1 = 10, quiz2 = 10, quiz3 = 10;
@@ -38,13 +38,13 @@ public:
     }
     char computeLetterGrade(){
         //tried to use a switch case but i dont think itll work
-        if (this->FinalgradeNum > 90){
+        if (this->finalgradeNum > 90){
             return 'A';
-        }if else(this->FinalgradeNum > 80){
+        }if else(this->finalgradeNum > 80){
             return 'B';
-        }if else (this->FinalGradeNum > 70){
+        }if else (this->finalGradeNum > 70){
             return 'C';
-        }if else (this->FinalGradeNum > 60){
+        }if else (this->finalGradeNum > 60){
             return 'D';
         }else{
             return 'F';
@@ -55,7 +55,7 @@ public:
     void setQuiz2(int quizScore2){this->quiz2 = quizScore2};
     void setQuiz3(int quizScore3){this->quiz3 = quizScore3};
     void setMidterm(int midtermScore){this->midterm = midtermScore};
-    void setFinalExam(int FinalExamScore){this->finalExam = FinalExamScore};
+    void setFinalExam(int finalExamScore){this->finalExam = finalExamScore};
     //getters
     int getQuiz1(){return this->quiz1};
     int getQuiz2(){return this->quiz2};
@@ -72,7 +72,7 @@ public:
         s += "Midterm Grade: " << midterm;
         s += "Final Exam Grade: " << finalExam;
 
-        s += "Final Course Grade: " << FinalGradeChar << ": " << FinalGradeNum;
+        s += "Final Course Grade: " << finalGradeChar << ": " << finalGradeNum;
 
         return s
     }
