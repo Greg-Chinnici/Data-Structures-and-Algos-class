@@ -18,17 +18,35 @@ public:
 
     }
     ~Model(){
-
+        delete[] Model;
     }
     string translateSingleConsonant(char consonant){ //keep capitals uppercase
-//?concat
-        char vowel = 'o'
-        return consonant << vowel << consonant
+        char vowel = 'o';
+        if (isalpha(consonant)){//if it is a letter be normal, vowels have already been checked
+            return consonant << vowel << consonant; //?concat
+        }else{//this means that it is punction so just return it
+            return consonant;
+        }
     }
     string translateSingleVowel(char vowel){
-        return vowel
+        return vowel;
     }
 private:
+    bool isVowel(char letter){
+        switch(tolower(letter)){
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                return true;
+            default:
+                return false;
+        }
+        //not sure which one looks better
+        //return(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' ||);
+        
+    }
 }
 
 /*
@@ -46,15 +64,24 @@ public:
 
     }
     ~Translator(){
-
+        delete[] Translator;
     }
     string translateEnglishWord(string englishWord){
+        string translatedWord = "";
+        bool isUppercase;
 
+        for (int letterIndex = 0 ; letterIndex < len(englishWord) ; letterIndex++){//for every letter in the word
+            isUppercase = (englishWord[letterIndex])
+            translatedWord += Model.isVowel(char(englishWord[letterIndex])) ? Model.translateSingleVowel(char(englishWord[letterIndex])) : Model.translateSingleConsonant(char(englishWord[letterIndex]));
+        }
+        return translatedWord
     }
     string translateEnglishSentence(string englishSentence){
+        string translatedSentence = "";
         for (string word : englishSentence){ //? idk if this works
-            translateEnglishWord(word)
+            translatedSentence += translateEnglishWord(word) + " ";
         }
+        return translatedSentence;
     }
 private:
 }
@@ -76,7 +103,9 @@ public:
 
     }
     void processFile(string inputFile , string outputFile){
-
+//take in the txt file
+//technically i can just put the whole file into the sentence translator
+//overwrite the ouput file with the new stuff
     }
 private:
 }
