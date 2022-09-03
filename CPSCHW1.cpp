@@ -23,13 +23,18 @@ public:
     string translateSingleConsonant(char consonant){ //keep capitals uppercase
         char vowel = 'o';
         if (isalpha(consonant)){//if it is a letter be normal, vowels have already been checked
-            return consonant << vowel << consonant; //?concat
+            string cons = "";
+            cons.append(consanant);
+            cons.append(vowel);
+            cons.append(consanant);
+
+            return cons;
         }else{//this means that it is punction so just return it
-            return consonant;
+            return string(consonant);
         }
     }
     string translateSingleVowel(char vowel){
-        return vowel;
+        return string(vowel);
     }
 private:
     bool isVowel(char letter){
@@ -70,13 +75,14 @@ public:
         string translatedWord = "";
         bool isUppercase;
 
-        for (int letterIndex = 0 ; letterIndex < len(englishWord) ; letterIndex++){//for every letter in the word
-            isUppercase = (englishWord[letterIndex])
-            translatedWord += Model.isVowel(char(englishWord[letterIndex])) ? Model.translateSingleVowel(char(englishWord[letterIndex])) : Model.translateSingleConsonant(char(englishWord[letterIndex]));
+        for (int letterIndex = 0 ; letterIndex < englishWord.length() ; letterIndex++){//for every letter in the word
+            isUppercase = (englishWord[letterIndex]);
+            translatedWord += (Model.isVowel(char(englishWord[letterIndex]))) ? (Model.translateSingleVowel(char(englishWord[letterIndex]))) : (Model.translateSingleConsonant(char(englishWord[letterIndex])));
         }
-        return translatedWord
+        return translatedWord;
     }
     string translateEnglishSentence(string englishSentence){
+        //do i just keep adding chars to a string until i see a period?
         string translatedSentence = "";
         for (string word : englishSentence){ //? idk if this works
             translatedSentence += translateEnglishWord(word) + " ";
@@ -100,12 +106,28 @@ public:
 
     }
     ~FileProcessor(){
-
+        delete[] FileProcessor;
     }
     void processFile(string inputFile , string outputFile){
 //take in the txt file
 //technically i can just put the whole file into the sentence translator
 //overwrite the ouput file with the new stuff
+        fstream fileHandler;
+        fileHandler.open(inputFile , in); //opens for a read
+        if (fileHandler.is_open()){
+            string fileText;
+            while(getline(fileHandler , fileText)){
+                Translator.translateEnglishSentence(fileText);
+            }
+        }
+
     }
 private:
+}
+
+int main(){
+
+FileProcessor.processFile( "CPSCHW1input.txt" ,  "CPSCHW1output.txt");
+
+    return 0
 }
