@@ -1,17 +1,18 @@
 #include <string>
 #include <fstream>
+#include <iostream>
 
-//using namespace std
+
 
 class Model{
 public:
     Model();
     ~Model();
-    string translateSingleConsonant(char consonant);
-    string translateSingleVowel(char vowel);
+    std::string translateSingleConsonant(char consonant);
+    std::string translateSingleVowel(char vowel);
 private:
     bool isVowel(char letter);
-}
+};
 
 
 
@@ -19,10 +20,10 @@ class Translator{
 public:
     Translator();
     ~Translator();
-    string translateEnglishWord(string englishWord);
-    string translateEnglishSentence(string englishSentence);
+    std::string translateEnglishWord(std::string englishWord);
+    std::string translateEnglishSentence(std::string englishSentence);
 private:
-}
+};
 
 
 
@@ -32,4 +33,4 @@ public:
     ~FileProcessor();
     void processFile();
 private:
-}
+};

@@ -1,6 +1,5 @@
-#include <iostream>
 #include "CPSCHW1.h"
-//using namespace std
+//using namespace std ,  when i activate nspcSTD it breaks the class
 
 
 /*
@@ -23,12 +22,7 @@ public:
     string translateSingleConsonant(char consonant){ //keep capitals uppercase
         char vowel = 'o';
         if (isalpha(consonant)){//if it is a letter be normal, vowels have already been checked
-            string cons = "";
-            cons.append(consanant);
-            cons.append(vowel);
-            cons.append(consanant);
-
-            return cons;
+            return string(consonant + vowel + consonant);
         }else{//this means that it is punction so just return it
             return string(consonant);
         }
@@ -52,7 +46,7 @@ private:
         //return(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' ||);
         
     }
-}
+};
 
 /*
 The Translator Class
@@ -90,7 +84,7 @@ public:
         return translatedSentence;
     }
 private:
-}
+};
 
 /*
 The FileProcessor Class
@@ -123,11 +117,11 @@ public:
 
     }
 private:
-}
+};
 
 int main(){
-
-FileProcessor.processFile( "CPSCHW1input.txt" ,  "CPSCHW1output.txt");
+FileProcessor processor;
+processor.processFile( "CPSCHW1input.txt" ,  "CPSCHW1output.txt");
 
     return 0
-}
+};
