@@ -1,8 +1,5 @@
 {
     "files.associations": {
-        "string": "cpp",
-        "filesystem": "cpp",
-        "iosfwd": "cpp",
         "__bit_reference": "cpp",
         "__bits": "cpp",
         "__config": "cpp",
@@ -25,7 +22,6 @@
         "chrono": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
-        "codecvt": "cpp",
         "compare": "cpp",
         "complex": "cpp",
         "concepts": "cpp",
@@ -41,10 +37,9 @@
         "cwctype": "cpp",
         "deque": "cpp",
         "exception": "cpp",
-        "fstream": "cpp",
         "initializer_list": "cpp",
-        "iomanip": "cpp",
         "ios": "cpp",
+        "iosfwd": "cpp",
         "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
@@ -61,9 +56,9 @@
         "ratio": "cpp",
         "semaphore": "cpp",
         "sstream": "cpp",
-        "stack": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
+        "string": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
         "thread": "cpp",
@@ -80,7 +75,5 @@
         "memory_resource": "cpp",
         "utility": "cpp",
         "stop_token": "cpp"
-    },
-    "git.ignoreLimitWarning": true,
-    "C_Cpp.errorSquiggles": "Disabled"
+    }
 }

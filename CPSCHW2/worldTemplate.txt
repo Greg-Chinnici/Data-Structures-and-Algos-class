@@ -1,0 +1,22 @@
+world
+level
+mario
+enemy - subclass: goomba, troopa, boss
+
+
+world is a 3d LxNxN array, each level is a top down 2d array
+    x - nothing
+    m - mushroom
+    c - coin
+    g - goomba
+    k - koopa troopa
+    b - boss
+    w - warp pipe
+    H - hero (mario)
+
+Mario 
+    health
+    moves NSEW in the same weight
+        if pos is a coin it is added to his wallet and it's replaced with a blank tile (x)
+        if pos is a mushroom power level += 1 (max is pl2)
+        if pos is a goomba 
