@@ -1,0 +1,16 @@
+The level number
+The position location of Mario (a row and column number)
+The action that was taken at that position
+    Mario collected a coin
+    Mario ate a mushroom
+    Mario fought a Goomba and won/lost
+    Mario fought a Koopa and won/lost
+    Mario fought the level boss and won/lost
+    The position is empty
+    Mario warped
+The number of lives Mario has after interacting with the position
+The number of coins Mario has after interacting with the position
+The direction that Mario will move next (UP, DOWN, LEFT, RIGHT)
+
+
+Level Number: , Mario's position: , Action at position: (if its a fight say if w/l), Mario Lives: , Mario Coins: , Next direction: 

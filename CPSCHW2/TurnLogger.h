@@ -5,6 +5,8 @@ private:
 public:
     TurnLogger(char* outputFile);
     ~TurnLogger();
+
+    void logInfo(char* message);
 };
 
 

@@ -1,23 +1,28 @@
 #include "mario.h"
+#include "TurnLogger.h"
+#include "World.h"
 #include <random>
+#include <time.h>
 
-mario::mario(){
+mario::mario(TurnLogger* lg, World* w){
     int killStreak = 0;
-    int lives = // get the info from the config;
-    int[] position[2] = {0,0}; //{posx , posy} in the code, i should convert it eventually
+    World* wrld = w;
+    int lives = wrld.marioLives //! not connected yet
+    int position[] = {0,0}; //{posx , posy} in the code, i should convert it eventually
+    int wallet = 0;
+    int powerLevel = 0;
+    TurnLogger* logger = lg;
 }
 mario::~mario(){
-    delete killStreak;
-    delete lives;
+    
 }
 
 char mario::getNewDirection(){
-    return random.choice({'n', 's', 'e', 'w'});
+    char dirs[] = {'n', 's', 'e', 'w'};
+    srand(time(0));
+    return dirs[rand() % 4];
 }
 void mario::moveMario(){
-    int posx = pos[0];
-    int posy = pos[1];
-
     char direction = getNewDirection();
     // add the direction to the move logs
 
@@ -39,61 +44,79 @@ void mario::moveMario(){
     }
 }
 
+//* they all have torous properties, only one direction per turn
 void mario::moveNorth(){
-    if (posy == 0){ // if you are at the top adn go north >> go to the bottom
-        posy == 9;
+    if (position[1] == 0){ 
+        position[1] = 9;
     }else{
-        posy += 1;
+        position[1] += 1;
     }
+    logger.logInfo("Direction: move up \n");
 }
 void mario::moveSouth(){
-    if (posy == 9){ // if you are at the top adn go north >> go to the bottom
-        posy == 0;
+    if (position[1] == 9){ 
+        position[1] == 0;
     }else{
-        posy -= 1;
+        position[1] -= 1;
     }
+    logger.logInfo("Direction: move down \n");
 }
 void mario::moveEast(){
-    if (posx == 9){ // if you are at the top adn go north >> go to the bottom
-        posx == 0;
+    if (position[0] == 9){ 
+        position[0] == 0;
     }else{
-        posx -= 1;
+        position[0] -= 1;
     }
+    logger.logInfo("Direction: move left \n");
 }
 void mario::moveWest(){
-    if (posx == 0){ // if you are at the top adn go north >> go to the bottom
-        posx == 9;
+    if (position[0] == 0){
+        position[0] == 9;
     }else{
-        posx += 1;
+        position[0] += 1;
     }
+    logger.logInfo("Direction: move right \n");
+
 }
 
 //* after every move these need to process / check stuff
 void mario::checkForItem(){
-    if (Level[posx][posy] == 'c'){
+    if ([wrld.currentLevel][position[0]][position[1]] == 'c'){
         wallet += 1;
         if (wallet >= 20){
             wallet = 0;
             lives += 1;
+            logger.logInfo("Action at Position: found coin and gained a life");
+        }else{
+            logger.logInfo("Action at Position: found coin");
         }
-        Level[posx][posy] = 'x';
+        [wrld.currentLevel][position[0]][position[1]] = 'x';
     }
-    if (Level[posx][posy] == 'm'){
+    if ([wrld.currentLevel][position[0]][position[1]] == 'm'){
         powerLevel += (powerLevel += 1 >= 2) ? 2 : powerLevel += 1;
-        Level[posx][posy] = 'x';
+        logger.logInfo("Action at Position: found mushroom");
+        [wrld.currentLevel][position[0]][position[1]] = 'x';
+    }
+    if ([wrld.currentLevel][position[0]][position[1]] == 'x'){
+        logger.logInfo("Action at Position: blank space");
+    }
+    if ([wrld.currentLevel][position[0]][position[1]] == 'w'){
+        logger.logInfo("Action at Position: used warp pipe");
+        wrld.nextLevel(); //! mkae this move mario into a random spot in the next level
     }
 }
 void mario::checkForEnemy(){
-    if (Level[posx][posy] == 'g'){
+    if ([wrld.currentLevel][position[0]][position[1]] == 'g'){
         attackGoomba();
     }
-    if (Level[posx][posy] == 'k'){
+    if ([wrld.currentLevel][position[0]][position[1]] == 'k'){
         attackKoopa();
     }
-    if (Level[posx][posy] == 'b'){
+    if ([wrld.currentLevel][position[0]][position[1]] == 'b'){
         attackBoss();
     }
 }
+//! do i make logs for each mob encounter adn type
 void mario::attackGoomba(){
     ((rand() % 100 + 1) > 20) ? winBattle() : loseBattle();
 }
@@ -116,7 +139,7 @@ void mario::winBattle(){
         lives += 1;
         killStreak = 0;
     }
-    Level[posx][posy] = 'x';
+   [wrld.currentLevel][position[0]][position[1]] = 'x';
 }
 void mario::loseBattle(){
     killStreak = 0;
@@ -126,6 +149,9 @@ void mario::loseBattle(){
 void mario::gameOver(){
     // print out how far mario got
     // add the final log info to the output file
+    std::string message = "game over" << "mario got to level 1-" << std::string(World.currentLevel + 1);
+    logger.logInfo(message);
+    logger.~TurnLogger();
 }
 
 //! need to implement pipes and wining agaist a boss moves to the next level
